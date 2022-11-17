@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class TravelEntity {
+public class TripEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -19,9 +19,9 @@ public class TravelEntity {
     @Column(name = "creationDate")
     private LocalDateTime creationDate;
 
-    public TravelEntity() {}
+    public TripEntity() {}
 
-    public TravelEntity(String name, String creator, LocalDateTime creationDate) {
+    public TripEntity(String name, String creator, LocalDateTime creationDate) {
         this.name = name;
         this.creator = creator;
         this.creationDate = creationDate;

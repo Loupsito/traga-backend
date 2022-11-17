@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Travel API", version = "1.0", description = "REST API to manage user's travels"))
+@OpenAPIDefinition(info = @Info(title = "Trip API", version = "1.0", description = "REST API to manage user's trips"))
 public class TragaApplication {
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class TragaApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/travel").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/api/trips").allowedOrigins("http://localhost:3000");
             }
         };
     }

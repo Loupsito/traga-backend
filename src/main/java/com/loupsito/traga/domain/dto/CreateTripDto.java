@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
-public record CreateTravelDto(@NotNull @JsonProperty() String name, @NotNull @JsonProperty() String creator) {
-    public CreateTravelDto(String name, String creator) {
+public record CreateTripDto(@NotNull @JsonProperty() String name, @NotNull @JsonProperty() String creator) {
+    public CreateTripDto(String name, String creator) {
         this.name = name;
         this.creator = creator;
     }

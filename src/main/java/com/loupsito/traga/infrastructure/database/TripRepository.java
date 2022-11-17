@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface TravelRepository extends JpaRepository<TravelEntity, Integer> {
-    List<TravelEntity> findAllByCreator(String userId);
+public interface TripRepository extends JpaRepository<TripEntity, Integer> {
+    List<TripEntity> findAllByCreator(String userId);
 }
