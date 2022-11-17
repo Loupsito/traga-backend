@@ -23,6 +23,7 @@ public class TragaApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/trips").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/api/trips/{id}").allowedOrigins("http://localhost:3000");
             }
         };
     }
