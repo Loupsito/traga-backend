@@ -32,9 +32,4 @@ public class TripController {
         TripEntity entity = new TripEntity(createTripDto.name(), createTripDto.creator(), LocalDateTime.now());
         tripRepository.save(entity);
     }
-
-    @PostMapping("/trips/step")
-    public void addStep(@RequestBody AddStepDto addStepDto) {
-
-    }
 }
