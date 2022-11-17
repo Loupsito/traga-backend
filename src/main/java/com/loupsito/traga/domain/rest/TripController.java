@@ -2,7 +2,6 @@ package com.loupsito.traga.domain.rest;
 
 import com.loupsito.traga.domain.dto.AddStepDto;
 import com.loupsito.traga.domain.dto.CreateTripDto;
-import com.loupsito.traga.domain.model.Trip;
 import com.loupsito.traga.infrastructure.database.TripEntity;
 import com.loupsito.traga.infrastructure.database.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +18,13 @@ public class TripController {
     TripRepository tripRepository;
 
     @GetMapping("/trips")
-    public List<Trip> getAllTripsFromUser(@RequestParam(required = false) String userId) {
-        return tripRepository
-                .findAll()
-                .stream()
-                .map(tripEntity -> new Trip(tripEntity.getName(), tripEntity.getCreator(), tripEntity.getCreationDate()))
-                .toList();
+    public List<TripEntity> getAllTripsFromUser(@RequestParam(required = false) String userId) {
+        return tripRepository.findAll();
     }
-    @GetMapping("/trips/:id")
-    public Trip getTrip(){
-        return null;
+
+    @GetMapping("/trips/{id}")
+    public TripEntity getTrip(@PathVariable("id") long id) {
+        return tripRepository.findById(id).orElseThrow();
     }
 
     @PostMapping("/trips")
