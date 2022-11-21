@@ -28,7 +28,7 @@ public class TripController {
     public TripEntity getTrip(@PathVariable("id") long id) {
         return tripRepository
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trip entity not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trip not found"));
     }
 
     @PostMapping("/trips")
