@@ -5,7 +5,9 @@ import com.loupsito.traga.domain.dto.CreateTripDto;
 import com.loupsito.traga.infrastructure.database.TripEntity;
 import com.loupsito.traga.infrastructure.database.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,7 +26,9 @@ public class TripController {
 
     @GetMapping("/trips/{id}")
     public TripEntity getTrip(@PathVariable("id") long id) {
-        return tripRepository.findById(id).orElseThrow();
+        return tripRepository
+                .findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trip entity not found"));
     }
 
     @PostMapping("/trips")
