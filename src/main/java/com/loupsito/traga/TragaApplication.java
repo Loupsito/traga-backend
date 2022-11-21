@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Trip API", version = "1.0", description = "REST API to manage user's trips"))
+@OpenAPIDefinition(info = @Info(title = "Trip API", version = "1.0", description = "Traga backend API"))
 public class TragaApplication {
 
     public static void main(String[] args) {
