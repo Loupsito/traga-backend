@@ -1,7 +1,7 @@
-package com.loupsito.traga.domain.rest;
+package com.loupsito.traga.rest;
 
-import com.loupsito.traga.domain.dto.AddStepDto;
 import com.loupsito.traga.domain.dto.CreateTripDto;
+import com.loupsito.traga.domain.dto.UpdateTripDto;
 import com.loupsito.traga.infrastructure.database.TripEntity;
 import com.loupsito.traga.infrastructure.database.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +35,13 @@ public class TripController {
     public void createTrip(@RequestBody CreateTripDto createTripDto) {
         TripEntity entity = new TripEntity(createTripDto.name(), createTripDto.creator(), LocalDateTime.now());
         tripRepository.save(entity);
+    }
+
+    @PutMapping("/trip")
+    public void updateTrip(@RequestBody UpdateTripDto updateTripDto) {
+        TripEntity tripEntity = getTrip(updateTripDto.idTrip());
+        tripEntity.setName(updateTripDto.name() != null ? updateTripDto.name() : tripEntity.getName());
+        tripEntity.setCreator(updateTripDto.creator() != null ? updateTripDto.creator() : tripEntity.getCreator());
+        tripRepository.save(tripEntity);
     }
 }
