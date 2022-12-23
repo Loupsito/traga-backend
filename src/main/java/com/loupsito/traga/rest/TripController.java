@@ -37,7 +37,7 @@ public class TripController {
         tripRepository.save(entity);
     }
 
-    @PutMapping("/trip")
+    @PutMapping("/trips")
     public void updateTrip(@RequestBody UpdateTripDto updateTripDto) {
         TripEntity tripEntity = getTrip(updateTripDto.idTrip());
         tripEntity.setName(updateTripDto.name() != null ? updateTripDto.name() : tripEntity.getName());
