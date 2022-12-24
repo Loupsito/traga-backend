@@ -22,8 +22,11 @@ public class TragaApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/trips").allowedOrigins("http://localhost:3000");
-                registry.addMapping("/api/trips/{id}").allowedOrigins("http://localhost:3000");
+                registry.addMapping("/api/trips")
+                        .allowedOrigins("http://localhost:3000")
+                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
+                registry.addMapping("/api/trips/{id}")
+                        .allowedOrigins("http://localhost:3000");
             }
         };
     }
