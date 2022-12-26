@@ -25,7 +25,7 @@ public class TragaApplication {
                 registry.addMapping("/api/trips")
                         .allowedOrigins("http://localhost:3000")
                         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
-                registry.addMapping("/api/trips/{idTrip}")
+                registry.addMapping("/api/trips/{tripId}")
                         .allowedOrigins("http://localhost:3000")
                         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
                 ;
