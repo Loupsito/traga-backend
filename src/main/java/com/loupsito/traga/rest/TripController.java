@@ -24,10 +24,10 @@ public class TripController {
         return tripRepository.findAll();
     }
 
-    @GetMapping("/trips/{id}")
-    public TripEntity getTrip(@PathVariable("id") long id) {
+    @GetMapping("/trips/{idTrip}")
+    public TripEntity getTrip(@PathVariable("idTrip") long idTrip) {
         return tripRepository
-                .findById(id)
+                .findById(idTrip)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trip not found"));
     }
 
@@ -43,5 +43,11 @@ public class TripController {
         tripEntity.setName(updateTripDto.name() != null ? updateTripDto.name() : tripEntity.getName());
         tripEntity.setCreator(updateTripDto.creator() != null ? updateTripDto.creator() : tripEntity.getCreator());
         tripRepository.save(tripEntity);
+    }
+
+    @DeleteMapping("/trips/{idTrip}")
+    public void deleteTrip (@PathVariable("idTrip") long idTrip) {
+        TripEntity tripEntity = getTrip(idTrip);
+        tripRepository.delete(tripEntity);
     }
 }
