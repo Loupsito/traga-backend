@@ -25,8 +25,10 @@ public class TragaApplication {
                 registry.addMapping("/api/trips")
                         .allowedOrigins("http://localhost:3000")
                         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
-                registry.addMapping("/api/trips/{id}")
-                        .allowedOrigins("http://localhost:3000");
+                registry.addMapping("/api/trips/{idTrip}")
+                        .allowedOrigins("http://localhost:3000")
+                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
+                ;
             }
         };
     }
