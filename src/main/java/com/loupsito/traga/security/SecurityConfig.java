@@ -12,7 +12,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+        http.authorizeRequests()
+                .antMatchers("/v3/api-docs","/v3/api-docs/swagger-config", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger-ui.html","/swagger-ui/index.html", "/webjars/**").permitAll()
+                .and()
                 .authorizeRequests(expressionInterceptUrlRegistry -> expressionInterceptUrlRegistry
                         .anyRequest().authenticated().and())
                 .oauth2ResourceServer().jwt();
