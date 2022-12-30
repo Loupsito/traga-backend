@@ -1,4 +1,4 @@
-package com.loupsito.traga.config;
+package com.loupsito.traga.config.swagger;
 
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;

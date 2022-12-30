@@ -1,4 +1,4 @@
-package com.loupsito.traga.security;
+package com.loupsito.traga.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
